@@ -1357,4 +1357,236 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--alert-concern);
 }
 
+/* ========================================================
+   Responsive Widget Overrides (Mobile, Tablet, Smart Board)
+   ======================================================== */
+
+/* 1. Mobile View (max-width: 599.98px) */
+@media (max-width: 599.98px) {
+  /* Patient list row cards - stacked for narrow screen layouts */
+  .patient-row-card {
+    grid-template-columns: 1.2fr 1fr 1fr 1fr !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .patient-row-card .patient-meta {
+    grid-column: span 4 !important;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  /* Miniature waveform spans full row width below details */
+  .patient-row-card div[style*="height: 38px"] {
+    grid-column: span 4 !important;
+    height: 42px !important;
+    margin-top: 4px;
+  }
+
+  .patient-row-card .telemetry-badge {
+    grid-column: span 4 !important;
+    width: 100% !important;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* Doctor/attending Dashboard sub-navbar menu collapse */
+  .clinical-navbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .navbar-menu-group {
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .navbar-item-container {
+    width: 100% !important;
+  }
+
+  .navbar-item-btn {
+    width: 100% !important;
+    justify-content: space-between !important;
+    padding: 10px 14px !important;
+    background: var(--bg-tertiary) !important;
+    border-radius: 8px !important;
+  }
+
+  .navbar-dropdown-list {
+    position: relative !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: 1px solid var(--border-color) !important;
+    border-top: none !important;
+    border-radius: 0 0 8px 8px !important;
+    margin-top: -2px !important;
+    display: none;
+  }
+
+  .navbar-dropdown-list.active {
+    display: flex !important;
+  }
+
+  .navbar-logo-link {
+    align-self: center !important;
+    margin: 8px 0 !important;
+  }
+
+  /* Audio spectrum wave height and alignment */
+  .audio-analyzer {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    padding: 14px !important;
+  }
+
+  .audio-bars-container {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Patient A4 diagnostic reports scaling */
+  .medical-report-a4 {
+    padding: 20px !important;
+    border-radius: 8px !important;
+  }
+
+  .report-header-section {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .report-id-box {
+    text-align: left !important;
+  }
+
+  .report-meta-table td {
+    padding: 6px 8px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .report-telemetry-summary {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .report-signatures {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 32px !important;
+    margin-top: 30px !important;
+  }
+
+  /* Specialist pulmonologist booking lists */
+  .specialist-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .specialist-card {
+    padding: 16px !important;
+  }
+
+  /* HIPAA Security compliance vault flow nodes */
+  .security-sync-map {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 16px !important;
+  }
+
+  .sec-line-arrow {
+    width: 2px !important;
+    height: 30px !important;
+    margin: 8px 0 !important;
+    background: repeating-linear-gradient(180deg, var(--color-primary), var(--color-primary) 6px, transparent 6px, transparent 12px) !important;
+  }
+
+  .sec-line-arrow::after {
+    right: -4px !important;
+    bottom: -2px !important;
+    top: auto !important;
+    transform: rotate(90deg) !important;
+  }
+}
+
+/* 2. iPad & Tablet View (min-width: 600px) and (max-width: 1023.98px) */
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .patient-row-card {
+    grid-template-columns: 2.2fr 1fr 1fr 1fr 1.2fr !important;
+    gap: 10px !important;
+  }
+
+  /* Mini visualizer spans 100% width on own row to avoid horizontal compression */
+  .patient-row-card div[style*="height: 38px"] {
+    grid-column: span 5 !important;
+    height: 40px !important;
+    margin-top: 4px;
+  }
+
+  .clinical-navbar {
+    padding: 10px 18px !important;
+  }
+
+  .specialist-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  
+  .security-sync-map {
+    padding: 16px !important;
+  }
+}
+
+/* 3. Smart Board View (min-width: 1920px) */
+@media (min-width: 1920px) {
+  .ring-container {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .ring-value {
+    font-size: 2.8rem !important;
+  }
+
+  .patient-avatar {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .patient-row-card {
+    padding: 20px 28px !important;
+    gap: 16px !important;
+  }
+
+  .waveform-container {
+    height: 200px !important;
+  }
+
+  .audio-bars-container {
+    height: 48px !important;
+  }
+
+  .specialist-card {
+    padding: 24px !important;
+  }
+
+  .sec-icon-circle {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 1.4rem !important;
+  }
+}
+
+
 

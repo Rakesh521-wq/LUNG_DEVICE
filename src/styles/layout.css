@@ -274,9 +274,12 @@ input:checked + .slider:before {
 }
 
 .col-12 { grid-column: span 12; }
+.col-9 { grid-column: span 9; }
 .col-8 { grid-column: span 8; }
-.col-4 { grid-column: span 4; }
+.col-7 { grid-column: span 7; }
 .col-6 { grid-column: span 6; }
+.col-5 { grid-column: span 5; }
+.col-4 { grid-column: span 4; }
 .col-3 { grid-column: span 3; }
 
 /* Dashboard Cards Structure */
@@ -312,47 +315,136 @@ input:checked + .slider:before {
   color: var(--color-primary);
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 1200px) {
-  .col-8, .col-4 {
-    grid-column: span 12;
-  }
-}
+/* Responsive Breakpoints - Consolidated Viewport Scaling (Mobile, iPad/Tab, PC, Smart Board) */
 
-@media (max-width: 992px) {
-  .app-sidebar {
-    transform: translateX(-100%);
+/* 1. Mobile View (max-width: 599.98px) */
+@media (max-width: 599.98px) {
+  .col-12, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3 {
+    grid-column: span 12 !important;
   }
-  .app-sidebar.mobile-open {
-    transform: translateX(0);
+  
+  .dashboard-grid {
+    gap: 16px !important;
   }
+
   .main-content {
-    margin-left: 0;
-    padding: 24px;
+    padding: 16px !important;
   }
-  .menu-toggle {
-    display: flex !important;
+
+  .view-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
   }
-  .col-6 {
-    grid-column: span 12;
+
+  .header-actions {
+    width: 100% !important;
+    justify-content: space-between !important;
   }
-  .col-3 {
-    grid-column: span 6;
+
+  .dashboard-card {
+    padding: 16px !important;
+  }
+  
+  .modal-content-glass {
+    width: 95% !important;
+    margin: 10px !important;
+  }
+  
+  .form-row-two {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .telemetry-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
 }
 
-@media (max-width: 576px) {
+/* 2. iPad & Tablet View (min-width: 600px) and (max-width: 1023.98px) */
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .col-12, .col-9, .col-8, .col-7 {
+    grid-column: span 12 !important;
+  }
+  
+  .col-6, .col-5, .col-4 {
+    grid-column: span 6 !important;
+  }
+  
   .col-3 {
-    grid-column: span 12;
+    grid-column: span 6 !important;
   }
-  .view-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+
+  .dashboard-grid {
+    gap: 20px !important;
   }
-  .header-actions {
-    width: 100%;
-    justify-content: space-between;
+
+  .main-content {
+    padding: 24px !important;
+  }
+  
+  .telemetry-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+/* 3. PC / Desktop View (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .app-sidebar {
+    transform: translateX(0) !important; /* Docked and visible by default */
+  }
+
+  .main-content {
+    margin-left: 280px !important; /* Offset for docked sidebar */
+    padding: 40px !important;
+  }
+
+  .menu-toggle-btn {
+    display: none !important; /* Hide collapse toggle */
+  }
+
+  .sidebar-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* 4. Smart Board View (min-width: 1920px) */
+@media (min-width: 1920px) {
+  :root {
+    font-size: 18px; /* Scale font size for massive smart boards */
+  }
+
+  .app-sidebar {
+    width: 320px !important;
+    transform: translateX(0) !important;
+  }
+
+  .main-content {
+    margin-left: 320px !important;
+    padding: 60px !important;
+  }
+
+  .menu-toggle-btn {
+    display: none !important;
+  }
+
+  .sidebar-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  .dashboard-grid {
+    gap: 32px !important;
+  }
+  
+  .dashboard-card {
+    padding: 32px !important;
+    border-radius: 20px !important;
   }
 }
 
@@ -674,7 +766,7 @@ input:checked + .slider:before {
 }
 
 /* Responsive adjust for Hero Grid */
-@media (max-width: 992px) {
+@media (max-width: 1023.98px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -845,7 +937,7 @@ input:checked + .slider:before {
 }
 
 /* Responsive updates for the top menu bar */
-@media (max-width: 992px) {
+@media (max-width: 1023.98px) {
   .main-content {
     margin-left: 0 !important;
     padding: 20px !important;
@@ -1019,7 +1111,7 @@ input:checked + .slider:before {
 }
 
 /* Hide global search box on small screens to fit layout elements */
-@media (max-width: 768px) {
+@media (max-width: 599.98px) {
   .top-menu-search {
     display: none !important;
   }
@@ -1056,7 +1148,7 @@ input:checked + .slider:before {
 }
 
 /* Responsive adjust for Awareness Grid */
-@media (max-width: 992px) {
+@media (max-width: 1023.98px) {
   .awareness-grid {
     grid-template-columns: 1fr;
     gap: 40px;

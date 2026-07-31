@@ -1,0 +1,11 @@
+              precision    recall  f1-score   support
+
+      Normal       0.46      0.77      0.57        61
+      Asthma       0.65      0.37      0.47        65
+        COPD       0.97      0.95      0.96       134
+   Pneumonia       0.62      0.77      0.69        26
+  Post_COVID       0.60      0.40      0.48        52
+
+    accuracy                           0.71       338
+   macro avg       0.66      0.65      0.63       338
+weighted avg       0.73      0.71      0.70       338

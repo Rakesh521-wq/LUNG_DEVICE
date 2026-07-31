@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Lung Patch – Smart Respiratory Monitoring Ecosystem</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Styling Files -->
+  <link rel="stylesheet" href="/src/styles/theme.css">
+  <link rel="stylesheet" href="/src/styles/layout.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  
+  <!-- html2pdf.js for premium PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- TensorFlow.js for client-side CNN inference -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+</head>
+<body>
+
+  <div class="app-wrapper">
+    
+    <!-- Sidebar Menu (Floating layout) -->
+    <aside class="app-sidebar" id="sidebar-panel">
+      
+      <!-- Brand Logo / Section -->
+      <div class="brand-section">
+        <div class="brand-logo"><i class="fas fa-lungs"></i></div>
+        <div>
+          <div class="brand-title">AI LUNG PATCH</div>
+          <div class="brand-subtitle">Smart Telemetry</div>
+        </div>
+      </div>
+
+      <!-- Navigation Router links (Restored to original portals) -->
+      <nav class="nav-links">
+        <div class="nav-item active" id="nav-landing" data-route="landing">
+          <i class="fas fa-hospital"></i> <span>Product Home</span>
+        </div>
+        <div class="nav-item" id="nav-patient" data-route="patient">
+          <i class="fas fa-user-injured"></i> <span>Patient Portal</span>
+        </div>
+        <div class="nav-item" id="nav-doctor" data-route="doctor">
+          <i class="fas fa-user-md"></i> <span>Doctor Portal</span>
+        </div>
+        <div class="nav-item" id="nav-specialists" data-route="specialists">
+          <i class="fas fa-hospital-user"></i> <span>Apollo Specialists</span>
+        </div>
+        <div class="nav-item" id="nav-analytics" data-route="analytics">
+          <i class="fas fa-chart-line"></i> <span>AI Analytics</span>
+        </div>
+        <div class="nav-item" id="nav-security" data-route="security">
+          <i class="fas fa-shield-halved"></i> <span>Security Vault</span>
+        </div>
+        <div class="nav-item" id="nav-op" data-route="op">
+          <i class="fas fa-hospital-user"></i> <span>Outpatient Portal</span>
+        </div>
+        <div class="nav-item" id="nav-pharmacy" style="border-left: 3px solid var(--color-secondary); color: var(--color-secondary);">
+          <i class="fas fa-pills"></i> <span>Amazon Pharmacy</span>
+        </div>
+      </nav>
+
+      <!-- Sidebar footer with theme toggles and mock profile badges -->
+      <div class="sidebar-footer">
+        
+        <!-- Light / Dark Mode Toggle -->
+        <div class="theme-toggle-container">
+          <span class="theme-label"><i class="fas fa-moon text-primary"></i> Dark Mode</span>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-mode-toggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Attending Doctor Mock Profile -->
+        <div class="user-profile-badge">
+          <div class="profile-avatar">AT</div>
+          <div class="profile-info">
+            <div class="profile-name">Dr. A. Thorne</div>
+            <div class="profile-role">Attending Pulmonologist</div>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Sidebar Overlay Backdrop -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main Workspace targets -->
+    <main class="main-content" id="main-content-panel">
+      
+      <!-- Top Menu Bar for Collapse Sidebar & Quick Diagnostics Info -->
+      <header class="top-menu-bar glass-panel" id="top-menu-bar">
+        <div class="top-menu-left">
+          <button class="menu-toggle-btn" id="sidebar-collapse-toggle" title="Toggle Sidebar">
+            <i class="fas fa-bars"></i>
+          </button>
+          <button class="btn btn-secondary" id="global-back-btn" style="display: none; padding: 6px 14px; font-size: 0.78rem; border-radius: 8px; align-items: center; gap: 6px; cursor: pointer; height: 38px; margin-right: 8px; border: 1px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-primary); transition: all var(--transition-fast);">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <div class="breadcrumb text-secondary">
+            <span id="breadcrumb-parent">Ecosystem</span> / <span id="breadcrumb-current" class="text-primary" style="font-weight: 700;">Product Home</span>
+          </div>
+        </div>
+        
+        <!-- Global Search Box -->
+        <div class="top-menu-search">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="global-search-input" placeholder="Search patients, guides, or conditions... (e.g. Vance, COPD, Asthma)" autocomplete="off">
+          <div class="search-results-dropdown glass-panel" id="global-search-results"></div>
+        </div>
+
+        <div class="top-menu-right">
+          <!-- Firebase Connection Toggle Button -->
+          <div id="firebase-conn-btn" class="live-telemetry-badge-mini" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); color: var(--color-secondary); transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; font-family: inherit; font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 9999px;">
+            <span class="pulse-badge active" id="firebase-conn-dot" style="background-color: var(--color-secondary); box-shadow: 0 0 8px var(--color-secondary-glow);"></span>
+            <span id="firebase-conn-text">Firebase Connected</span>
+          </div>
+          <div class="live-telemetry-badge-mini">
+            <span class="pulse-badge active"></span>
+            <span class="text-mono" id="top-bar-telemetry">21 BPM | 91% SpO₂</span>
+          </div>
+          <div class="header-action-btn notification-bell-wrapper" id="notifications-bell" title="Triage Alerts">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="header-alert-count">2</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mount point for Single Page App view updates -->
+      <div id="app-view-container"></div>
+      
+    </main>
+
+  </div>
+
+  <!-- Entry main script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

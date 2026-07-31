@@ -1,4 +1,12 @@
 import { TelemetryEngineInstance } from '../utils/mockData.js';
+import lungPatchImage from '../../assets/lung-patch.png';
+import clinicalExamImage from '../../assets/OIP.webp';
+import acousticAnalysisImage from '../../assets/download.webp';
+import pulmonaryAnatomyImage from '../../assets/lung-disease-doctor-showing-chest-600nw-2492000741.webp';
+import telehealthImage from '../../assets/OIP (1).webp';
+import awarenessImage from '../../assets/awareness.png';
+import doctorAdrianImage from '../../assets/doc-adrian.png';
+import doctorSarahImage from '../../assets/doc-sarah.png';
 
 export class LandingPage {
   constructor(containerId) {
@@ -57,7 +65,7 @@ export class LandingPage {
             </style>
             <div class="futuristic-image-frame" style="margin: 0;">
               <div class="ambient-glow"></div>
-              <img src="/assets/lung-patch.png" alt="AI Lung Patch Wearable" class="hero-patch-img">
+              <img src="${lungPatchImage}" alt="AI Lung Patch Wearable" class="hero-patch-img">
             </div>
 
             <!-- Required Vitals by Age Guide Box (Placed below the white box/image!) -->
@@ -140,7 +148,7 @@ export class LandingPage {
             <!-- Card 1: OIP.webp -->
             <div class="glass-panel" style="padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-tertiary); overflow: hidden;">
               <div style="width: 100%; height: 160px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background: #000;">
-                <img src="/assets/OIP.webp" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Clinical Stethoscopic Examination">
+                <img src="${clinicalExamImage}" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Clinical Stethoscopic Examination">
               </div>
               <div>
                 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Attending Consultation</h4>
@@ -151,7 +159,7 @@ export class LandingPage {
             <!-- Card 2: download.webp -->
             <div class="glass-panel" style="padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-tertiary); overflow: hidden;">
               <div style="width: 100%; height: 160px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background: #000;">
-                <img src="/assets/download.webp" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Micro-Acoustic Analysis">
+                <img src="${acousticAnalysisImage}" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Micro-Acoustic Analysis">
               </div>
               <div>
                 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Acoustic Enclave Tracking</h4>
@@ -162,7 +170,7 @@ export class LandingPage {
             <!-- Card 3: lung-disease-doctor-showing-chest-600nw-2492000741.webp -->
             <div class="glass-panel" style="padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-tertiary); overflow: hidden;">
               <div style="width: 100%; height: 160px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background: #000;">
-                <img src="/assets/lung-disease-doctor-showing-chest-600nw-2492000741.webp" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Pulmonary Pathological Anatomy">
+                <img src="${pulmonaryAnatomyImage}" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Pulmonary Pathological Anatomy">
               </div>
               <div>
                 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Pathological Evaluation</h4>
@@ -173,7 +181,7 @@ export class LandingPage {
             <!-- Card 4: OIP (1).webp -->
             <div class="glass-panel" style="padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-tertiary); overflow: hidden;">
               <div style="width: 100%; height: 160px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background: #000;">
-                <img src="/assets/OIP (1).webp" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Pediatric Telehealth Roster">
+                <img src="${telehealthImage}" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-fast);" class="gallery-image" alt="Pediatric Telehealth Roster">
               </div>
               <div>
                 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Pediatric Screening</h4>
@@ -192,7 +200,7 @@ export class LandingPage {
             <div class="awareness-visual-side">
               <div class="futuristic-image-frame">
                 <div class="ambient-glow" style="background: radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%);"></div>
-                <img src="/assets/awareness.png" alt="Respiratory Disease Awareness Campaign" class="hero-patch-img" style="border-radius: 16px; border: 1px solid var(--border-color);">
+                <img src="${awarenessImage}" alt="Respiratory Disease Awareness Campaign" class="hero-patch-img" style="border-radius: 16px; border: 1px solid var(--border-color);">
                 <div class="floating-telemetry-badge glass-panel" style="bottom: 12px; left: -10px; right: auto;">
                   <i class="fas fa-ribbon text-accent" style="font-size: 1.2rem;"></i>
                   <div>
@@ -259,7 +267,7 @@ export class LandingPage {
                 "The AI Lung Patch has revolutionized how we monitor high-risk COPD and pulmonary recovery patients post-discharge. Being able to stream high-fidelity acoustic lung sounds continuously allows us to adjust bronchodilator doses and prevent emergency ICU readmissions."
               </p>
               <div class="testimonial-author" style="margin-top: auto;">
-                <img src="/assets/doc-adrian.png" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary);" alt="Dr. Adrian Thorne">
+                <img src="${doctorAdrianImage}" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary);" alt="Dr. Adrian Thorne">
                 <div>
                   <div class="author-name" style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Dr. Adrian Thorne, FACP</div>
                   <div class="author-title" style="font-size: 0.78rem; color: var(--text-secondary);">Chief of Pulmonology, Metro Health</div>
@@ -273,7 +281,7 @@ export class LandingPage {
                 "Monitoring pediatric patients with severe asthma has always been a major challenge. The micro-acoustic tracking on this wearable allows us to catch inspiratory crackles and wheezing patterns early, providing timely therapeutic adjustments before acute attacks occur."
               </p>
               <div class="testimonial-author" style="margin-top: auto;">
-                <img src="/assets/doc-sarah.png" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-secondary);" alt="Dr. Sarah Jenkins">
+                <img src="${doctorSarahImage}" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-secondary);" alt="Dr. Sarah Jenkins">
                 <div>
                   <div class="author-name" style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Dr. Sarah Jenkins, MD</div>
                   <div class="author-title" style="font-size: 0.78rem; color: var(--text-secondary);">Pediatric Pulmonology Specialist</div>
